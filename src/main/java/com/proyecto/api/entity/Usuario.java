@@ -17,7 +17,7 @@ public class Usuario {
     private String apellidos;
     private String correo;
     private String clave;
-    private String rol;
+    //private String rol;
 
     // Getters y Setters
     public Long getId() {
@@ -60,13 +60,7 @@ public class Usuario {
         this.clave = clave;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+    
 }
 
 
