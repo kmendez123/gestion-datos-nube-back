@@ -3,9 +3,11 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.api.entity.Usuario;
@@ -29,6 +31,11 @@ public class UsuarioController {
         } catch (Exception e) {
             return ResponseEntity.status(500).body(null);
         }
+    }
+    @GetMapping("/existe-email")
+    public ResponseEntity<Boolean> existeEmail(@RequestParam String correo) {
+        boolean existe = usuarioService.existePorCorreo(correo);
+        return ResponseEntity.ok(existe);
     }
     @PostMapping("/login")
     public ResponseEntity<Usuario> login(@RequestBody Usuario usuario) {

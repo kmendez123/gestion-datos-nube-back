@@ -23,5 +23,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public Usuario login(String correo, String clave) {
         return usuarioRepository.findByCorreoAndClave(correo, clave).orElse(null);
     }
+    
+    public boolean existePorCorreo(String correo) {
+        return usuarioRepository.existsByCorreo(correo);
+    }
 
 }
